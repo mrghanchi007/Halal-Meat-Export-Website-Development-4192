@@ -74,7 +74,7 @@ const ExportProcess = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,14 +143,14 @@ const ExportProcess = () => {
                 {/* Step Image */}
                 <div className={`flex-1 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <img
-                    src={`https://images.unsplash.com/photo-${
-                      index === 0 ? '1586190848861-99aa4a171e90' :
-                      index === 1 ? '1607623814075-e51df1bdc82f' :
-                      index === 2 ? '1588168333986-5078d3ae3976' :
-                      index === 3 ? '1589395937857-d1a6d14d5b44' :
-                      '1578662996442-374dcbcb630e'
-                    }?w=600&h=400&fit=crop`}
-                    alt={step.title}
+                    src={
+                      index === 0 ? '/images/export-process/Order Finalization.jpg' :
+                      index === 1 ? '/images/export-process/Halal Slaughter.jpg' :
+                      index === 2 ? '/images/export-process/Professional Packing.jpg' :
+                      index === 3 ? '/images/export-process/Certification.jpg' :
+                      '/images/export-process/Air Delivery-1.jpg'
+                    }
+                    alt={`${step.title} - Pak Meat Traders Export Process`}
                     className="rounded-xl shadow-lg w-full h-80 object-cover"
                   />
                 </div>
@@ -199,8 +199,8 @@ const ExportProcess = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop"
-                alt="Quality Control"
+                src="/images/export-process/Quality Assurance.jpg"
+                alt="Quality Assurance - Rigorous Quality Control Standards"
                 className="rounded-xl shadow-lg w-full h-96 object-cover"
               />
             </motion.div>

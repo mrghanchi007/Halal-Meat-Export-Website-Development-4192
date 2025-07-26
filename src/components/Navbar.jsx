@@ -1,33 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import * as FiIcons from 'react-icons/fi';
-import SafeIcon from '../common/SafeIcon';
-
-const { FiMenu, FiX } = FiIcons;
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    // Set initial scroll state
-    setScrolled(window.scrollY > 20);
 
-    // Handle scroll events
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    
-    // Add event listeners
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+
+
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -41,115 +23,84 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact-us' },
   ];
 
-  // Determine navbar background style
-  const navbarStyle = scrolled 
-    ? 'bg-white shadow-lg py-2' 
-    : isHomePage 
-      ? 'bg-black bg-opacity-40 py-3' 
-      : 'bg-primary py-3';
+  // All pages will have white navbar like home page with light gray border
+  const navbarStyle = 'bg-white shadow-md py-3 border-b border-gray-200';
 
-  // Determine text color based on navbar style
+  // Text color for all pages (same as home page)
   const getTextColor = (isActive) => {
-    if (scrolled) {
-      return isActive ? 'text-primary border-b-2 border-primary' : 'text-gray-700 hover:text-primary';
-    } else {
-      return isActive ? 'text-white border-b-2 border-white' : 'text-white hover:text-gray-200';
-    }
+    return isActive ? 'text-primary border-b-2 border-primary' : 'text-gray-700 hover:text-primary';
   };
 
-  // Get menu icon color based on navbar style
+  // Menu icon color for all pages (same as home page)
   const getMenuIconColor = () => {
-    if (scrolled) {
-      return 'text-primary';
-    } else {
-      return 'text-white';
-    }
+    return 'text-gray-700';
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navbarStyle}`}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="flex justify-between items-center">
+    <nav className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${navbarStyle}`} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center relative w-full h-16 px-2">
+          {/* Logo - Left Side */}
           <Link to="/" className="flex items-center">
             <img
-              src={scrolled 
-                ? "https://www.account4web.com/wp-content/uploads/2025/07/Pak-meat-traders-Logox350.png" 
-                : "https://www.account4web.com/wp-content/uploads/2025/07/Pak-meat-traders-Logox350-gray.png"
-              }
-              alt="Pak Meat Traders Logo"
-              className="h-13 w-auto"
-              style={{ height: '3.25rem' }}
+              src="/logo/Pak meat traders Logo-350.svg"
+              alt="Pak Meat Traders - Premium Halal Beef Exporter Pakistan Logo"
+              title="Pak Meat Traders - Fresh Halal Beef Export Company"
+              className="h-16 sm:h-20 md:h-22 w-auto"
             />
           </Link>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu - Right Side */}
           <div className="hidden lg:flex items-center space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-xs font-medium transition-colors duration-200 px-2 py-1 ${
-                  location.pathname === item.path
-                    ? getTextColor(true)
-                    : getTextColor(false)
-                }`}
+                className={`text-xs font-medium transition-colors duration-200 px-2 py-1 ${location.pathname === item.path
+                  ? getTextColor(true)
+                  : getTextColor(false)
+                  }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/contact-us"
-              className="bg-white text-primary px-4 py-1 text-sm rounded-lg hover:bg-gray-100 transition-colors duration-200 ml-2"
-            >
-              Get Quote
-            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden flex items-center justify-center"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            <SafeIcon
-              icon={isOpen ? FiX : FiMenu}
-              className={`h-6 w-6 ${getMenuIconColor()}`}
-            />
-          </button>
+          {/* Mobile Menu Button - Right Side */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2 rounded-md ${getMenuIconColor()} hover:bg-white hover:bg-opacity-10 transition-colors duration-200`}
+            >
+              {isMobileMenuOpen ? (
+                <FiX className="h-6 w-6" />
+              ) : (
+                <FiMenu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu - Always render on mobile screens */}
-        <div
-          className={`lg:hidden mt-3 bg-white rounded-lg shadow-lg overflow-y-auto max-h-[80vh] transition-all duration-200 ${
-            isOpen ? 'opacity-100 visible' : 'opacity-0 invisible h-0'
-          }`}
-        >
-          <div className="py-2 grid grid-cols-2 gap-1 px-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`block px-3 py-2 text-xs font-medium text-center transition-colors duration-200 rounded-md ${
-                  location.pathname === item.path
-                    ? 'text-primary bg-blue-50'
-                    : 'text-gray-700 hover:text-primary hover:bg-gray-50'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="col-span-2 mt-2">
-              <Link
-                to="/contact-us"
-                className="block w-full text-center bg-primary text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm"
-                onClick={() => setIsOpen(false)}
-              >
-                Get Quote
-              </Link>
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200">
+            <div className="py-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block px-6 py-3 text-base ${location.pathname === item.path
+                    ? 'text-primary font-medium'
+                    : 'text-gray-700'
+                    }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );

@@ -12,7 +12,13 @@ const FloatingWhatsApp = () => {
 
   return (
     <motion.button
-      className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-200 z-50"
+      className="fixed bottom-6 right-4 md:right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-200 z-[9999]"
+      style={{ 
+        position: 'fixed', 
+        bottom: '24px', 
+        right: window.innerWidth <= 768 ? '50px' : '40px',
+        zIndex: 9999 
+      }}
       onClick={handleWhatsAppClick}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}

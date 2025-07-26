@@ -10,22 +10,22 @@ const HalalCertification = () => {
     {
       title: 'Islamic Prayer',
       description: 'The name of Allah is invoked (Bismillah) before the slaughter by a trained Muslim',
-      icon: 'https://images.unsplash.com/photo-1605369179590-014a88d4560a?w=80&h=80&fit=crop'
+      icon: '/images/certifications/Islamic Prayer Before Slaughter.jpg'
     },
     {
       title: 'Manual Slaughtering',
       description: 'The animal is slaughtered by hand with a sharp knife, cutting the major vessels',
-      icon: 'https://images.unsplash.com/photo-1589395937857-d1a6d14d5b44?w=80&h=80&fit=crop'
+      icon: '/images/certifications/Manual Slaughtering.jpg'
     },
     {
       title: 'Blood Drainage',
       description: 'Complete drainage of blood from the animal as required by Islamic law',
-      icon: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=80&h=80&fit=crop'
+      icon: '/images/certifications/Blood Drainage.jpg'
     },
     {
       title: 'Certification',
       description: 'Official certification by Pakistan Halal Authority confirming compliance',
-      icon: 'https://images.unsplash.com/photo-1589395937857-d1a6d14d5b44?w=80&h=80&fit=crop'
+      icon: '/images/certifications/Halal Certification.jpg'
     }
   ];
 
@@ -124,8 +124,8 @@ const HalalCertification = () => {
                 <div className="p-6 border-b border-gray-200 flex items-center justify-between">
                   <div className="flex items-center">
                     <img
-                      src="https://images.unsplash.com/photo-1589395937857-d1a6d14d5b44?w=60&h=60&fit=crop"
-                      alt="Halal Certificate"
+                      src="/images/certifications/Halal Certification.jpg"
+                      alt="Halal Certificate - Pakistan Halal Authority"
                       className="w-12 h-12 object-cover rounded-full"
                     />
                     <div className="ml-4">
@@ -159,8 +159,8 @@ const HalalCertification = () => {
                     <div className="text-center">
                       <div className="text-xs text-gray-500 mb-2">Authorized By</div>
                       <img
-                        src="https://images.unsplash.com/photo-1550006490-5ba5f0a07318?w=100&h=50&fit=crop"
-                        alt="Signature"
+                        src="/images/certifications/Halal Certification.jpg"
+                        alt="Official Signature - Pakistan Halal Authority"
                         className="h-10 mx-auto mb-2"
                       />
                       <div className="text-sm font-medium text-gray-900">Dr. Ahmed Khan</div>

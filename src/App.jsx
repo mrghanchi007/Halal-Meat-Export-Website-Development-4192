@@ -13,6 +13,7 @@ import Certifications from './pages/Certifications';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import ScrollToTopButton from './components/ScrollToTop';
 
 // Component to scroll to top on route change
 function ScrollToTop() {
@@ -28,14 +29,24 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white font-poppins">
+      <motion.div
+        className="min-h-screen bg-white font-poppins"
+        initial={{
+          y: typeof window !== 'undefined' && window.innerWidth <= 768 ? '100vh' : 0,
+          opacity: typeof window !== 'undefined' && window.innerWidth <= 768 ? 0.3 : 0
+        }}
+        animate={{
+          y: typeof window !== 'undefined' && window.innerWidth <= 768 ? 1 : 0,
+          opacity: 1
+        }}
+        transition={{
+          duration: typeof window !== 'undefined' && window.innerWidth <= 768 ? 1.2 : 0.5,
+          ease: [0.25, 0.46, 0.45, 0.94]
+        }}
+      >
         <ScrollToTop />
         <Navbar />
-        <motion.main
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <main className="pt-16">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<About />} />
@@ -47,10 +58,13 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact-us" element={<Contact />} />
           </Routes>
-        </motion.main>
+        </main>
         <Footer />
-        <FloatingWhatsApp />
-      </div>
+      </motion.div>
+      
+      {/* Fixed Floating Buttons - Outside animated container */}
+      <FloatingWhatsApp />
+      <ScrollToTopButton />
     </Router>
   );
 }

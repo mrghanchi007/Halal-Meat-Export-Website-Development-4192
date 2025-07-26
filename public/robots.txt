@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pakmeattraders.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow important pages
+Allow: /
+Allow: /about-us
+Allow: /our-products
+Allow: /export-process
+Allow: /slaughter-facility
+Allow: /our-farms
+Allow: /certifications
+Allow: /faq
+Allow: /contact-us

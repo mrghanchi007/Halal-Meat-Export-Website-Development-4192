@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import SEOHead from '../components/SEOHead';
 
 const { FiMapPin, FiMail, FiPhone, FiMessageCircle, FiSend, FiClock, FiGlobe } = FiIcons;
 
@@ -26,12 +27,38 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Thank you for your message! We will get back to you soon.');
+    try {
+      // Email form data to mrghanchi007@gmail.com
+      const emailData = {
+        to: 'mrghanchi007@gmail.com',
+        subject: `New Contact Form Submission from ${formData.name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${formData.name}</p>
+          <p><strong>Email:</strong> ${formData.email}</p>
+          <p><strong>Country:</strong> ${formData.country}</p>
+          <p><strong>Message:</strong></p>
+          <p>${formData.message}</p>
+          <hr>
+          <p><em>Submitted from Pak Meat Traders Website</em></p>
+        `
+      };
+
+      // For now, we'll use mailto link as fallback
+      // In production, you would integrate with EmailJS, Formspree, or backend API
+      const mailtoLink = `mailto:mrghanchi007@gmail.com?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCountry: ${formData.country}\nMessage: ${formData.message}`)}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
+      alert('Thank you for your message! Your default email client will open to send the message.');
       setFormData({ name: '', email: '', country: '', message: '' });
+    } catch (error) {
+      alert('There was an error sending your message. Please try again.');
+      console.error('Form submission error:', error);
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const contactInfo = [
@@ -68,7 +95,45 @@ const Contact = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
+      <SEOHead 
+        title="Contact Us - Get Quote for Halal Beef Export | Pak Meat Traders"
+        description="Contact Pak Meat Traders for premium halal beef export quotes. Located in Lahore, Pakistan. Email: mrghanchi007@gmail.com, Phone: +92-3477722225. Serving Saudi Arabia, UAE, Kuwait."
+        keywords="contact pak meat traders, halal beef quote, meat export inquiry, pakistan halal beef supplier, beef export contact, halal meat quotation, international meat trade contact"
+        canonical="https://pakmeattraders.com/contact-us"
+        ogImage="/logo/Pak-meat-traders-Logo-fav.jpg"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Pak Meat Traders Pvt",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Lahore",
+              "addressCountry": "Pakistan"
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+92-3477722225",
+                "contactType": "sales",
+                "availableLanguage": ["English", "Urdu"]
+              },
+              {
+                "@type": "ContactPoint",
+                "email": "mrghanchi007@gmail.com",
+                "contactType": "customer service"
+              }
+            ],
+            "openingHours": [
+              "Mo-Fr 09:00-18:00",
+              "Sa 09:00-14:00"
+            ]
+          }
+        }}
+      />
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

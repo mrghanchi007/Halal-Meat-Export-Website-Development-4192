@@ -10,32 +10,32 @@ const ProductGallery = () => {
 
   const galleryImages = [
     {
-      src: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&h=400&fit=crop',
+      src: '/images/our-products/Premium Beef Cuts.jpg',
       title: 'Premium Beef Cuts',
       category: 'Product'
     },
     {
-      src: 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=600&h=400&fit=crop',
+      src: '/images/our-products/Vacuum Sealed Packaging.jpg',
       title: 'Vacuum Sealed Packaging',
       category: 'Packaging'
     },
     {
-      src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop',
+      src: '/images/our-products/Quality Inspection.jpg',
       title: 'Quality Inspection',
       category: 'Process'
     },
     {
-      src: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=400&fit=crop',
+      src: '/images/our-products/Fresh Beef Selection.jpg',
       title: 'Fresh Beef Selection',
       category: 'Product'
     },
     {
-      src: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=400&fit=crop',
+      src: '/images/our-products/Export Preparation.jpg',
       title: 'Export Preparation',
       category: 'Process'
     },
     {
-      src: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&h=400&fit=crop',
+      src: '/images/our-products/Cold Storage Facility.jpg',
       title: 'Cold Storage Facility',
       category: 'Facility'
     }
@@ -90,7 +90,8 @@ const ProductGallery = () => {
             >
               <img 
                 src={image.src} 
-                alt={image.title} 
+                alt={`${image.title} - Pak Meat Traders Premium Halal Beef ${image.category} Pakistan Export Quality`} 
+                title={`${image.title} - Professional Halal Beef ${image.category} by Pak Meat Traders`}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
@@ -135,7 +136,8 @@ const ProductGallery = () => {
             <div className="relative max-w-4xl max-h-[80vh]">
               <img 
                 src={galleryImages[selectedImage].src} 
-                alt={galleryImages[selectedImage].title}
+                alt={`${galleryImages[selectedImage].title} - Pak Meat Traders Premium Halal Beef ${galleryImages[selectedImage].category} Pakistan Export Quality`}
+                title={`${galleryImages[selectedImage].title} - Professional Halal Beef ${galleryImages[selectedImage].category} by Pak Meat Traders`}
                 className="max-h-[80vh] max-w-full object-contain" 
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4">

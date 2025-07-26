@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import ProductGallery from '../components/ProductGallery';
+import SEOHead from '../components/SEOHead';
 
 const { FiPackage, FiShield, FiThermometer, FiTruck } = FiIcons;
 
@@ -42,7 +43,43 @@ const Products = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
+      <SEOHead 
+        title="Our Products - Premium Fresh Halal Beef | Pak Meat Traders"
+        description="Premium quality fresh halal beef products from Pakistan. 100% halal certified, vacuum sealed, temperature controlled with air delivery. Full carcass beef for international export."
+        keywords="fresh halal beef, halal beef products, vacuum sealed beef, temperature controlled meat, halal certified beef, pakistan beef export, full carcass beef, international meat export"
+        canonical="https://pakmeattraders.com/our-products"
+        ogImage="/logo/Pak-meat-traders-Logo-fav.jpg"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Fresh Halal Beef",
+          "description": "Premium quality fresh halal beef, 100% manual halal slaughtering, vacuum sealed packaging",
+          "brand": {
+            "@type": "Organization",
+            "name": "Pak Meat Traders Pvt"
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD"
+          },
+          "category": "Food Products",
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "Certification",
+              "value": "Pakistan Halal Authority (PHA)"
+            },
+            {
+              "@type": "PropertyValue", 
+              "name": "Packaging",
+              "value": "Vacuum Sealed"
+            }
+          ]
+        }}
+      />
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,8 +134,9 @@ const Products = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&h=400&fit=crop"
-                alt="Fresh Halal Beef"
+                src="/images/our-products/Fresh Halal Beef-1.jpg"
+                alt="Fresh Halal Beef - Premium Quality Pakistan Export - Vacuum Sealed Packaging"
+                title="Pak Meat Traders Fresh Halal Beef - 100% Manual Slaughtering Process"
                 className="rounded-xl shadow-lg w-full h-96 object-cover"
               />
             </motion.div>

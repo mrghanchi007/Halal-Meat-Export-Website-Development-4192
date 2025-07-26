@@ -1,5 +1,5 @@
 import React from 'react';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const PartnerLogos = () => {
   const partnerImages = [
@@ -28,26 +28,26 @@ const PartnerLogos = () => {
   return (
     <section className="py-16 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center"
-          initial={{opacity: 0}}
-          whileInView={{opacity: 1}}
-          transition={{duration: 0.8, staggerChildren: 0.2}}
-          viewport={{once: true}}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, staggerChildren: 0.2 }}
+          viewport={{ once: true }}
         >
           {partnerImages.map((partner, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className="flex justify-center"
-              initial={{opacity: 0, y: 20}}
-              whileInView={{opacity: 1, y: 0}}
-              transition={{duration: 0.5, delay: index * 0.1}}
-              viewport={{once: true}}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
             >
               <div className="h-20 w-full bg-gray-100 rounded-lg flex items-center justify-center p-4">
-                <img 
-                  src={partner.logo} 
-                  alt={partner.name} 
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
                   className="max-h-12 max-w-full grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>

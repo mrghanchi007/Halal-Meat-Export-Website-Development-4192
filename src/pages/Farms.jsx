@@ -33,27 +33,27 @@ const Farms = () => {
 
   const farmImages = [
     {
-      src: 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&h=500&fit=crop',
+      src: '/images/our-farms/Grazing Fields.jpg',
       title: 'Grazing Fields',
       description: 'Open pastures where our cattle graze freely'
     },
     {
-      src: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=500&fit=crop',
+      src: '/images/our-farms/Cattle Care.jpg',
       title: 'Cattle Care',
       description: 'Daily care and monitoring of our livestock'
     },
     {
-      src: 'https://images.unsplash.com/photo-1574704781086-0c8d7c4a1d6a?w=800&h=500&fit=crop',
+      src: '/images/our-farms/Feeding Time.jpg',
       title: 'Feeding Time',
       description: 'Quality nutrition for healthy cattle'
     },
     {
-      src: 'https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&h=500&fit=crop',
+      src: '/images/our-farms/Farm Facilities.jpg',
       title: 'Farm Facilities',
       description: 'Modern farm infrastructure and facilities'
     },
     {
-      src: 'https://images.unsplash.com/photo-1595433562696-d6386f26aa5c?w=800&h=500&fit=crop',
+      src: '/images/our-farms/Veterinary Care.jpg',
       title: 'Veterinary Care',
       description: 'Professional veterinary services and health monitoring'
     }
@@ -79,7 +79,7 @@ const Farms = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,8 +135,8 @@ const Farms = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop"
-                alt="Farm Overview"
+                src="/images/our-farms/Sustainable Cattle Farming.jpg"
+                alt="Sustainable Cattle Farming - Pak Meat Traders Farm Overview"
                 className="rounded-xl shadow-lg w-full h-96 object-cover"
               />
             </motion.div>
@@ -261,8 +261,8 @@ const Farms = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop"
-                alt="Cattle Care"
+                src="/images/our-farms/Animal Care Standards.jpg"
+                alt="Animal Care Standards - Pak Meat Traders Cattle Welfare"
                 className="rounded-xl shadow-lg w-full h-96 object-cover"
               />
             </motion.div>

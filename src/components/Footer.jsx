@@ -13,10 +13,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 lg:col-span-2">
             <img
-              src="https://www.account4web.com/wp-content/uploads/2025/07/Pak-meat-traders-Logox350-gray.png"
-              alt="Pak Meat Traders"
-              className="h-16 w-auto mb-4"
-              style={{ height: '4rem' }}
+              src="/logo/Pak meat traders Logo-350-gray.svg"
+              alt="Pak Meat Traders - Premium Halal Beef Exporter Pakistan"
+              title="Pak Meat Traders - Trusted Halal Meat Export Company Since 2020"
+              className="h-22 w-auto mb-4"
+              style={{ height: '5.5rem' }}
             />
             <p className="text-gray-300 mb-4 max-w-md">
               Committed to Quality. Trusted Worldwide. Premium quality fresh halal beef exporter from Pakistan, serving international markets with excellence since 2020.

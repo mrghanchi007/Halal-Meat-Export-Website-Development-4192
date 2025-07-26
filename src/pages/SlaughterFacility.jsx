@@ -60,29 +60,29 @@ const SlaughterFacility = () => {
 
   const facilityImages = [
     {
-      src: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&h=400&fit=crop',
+      src: '/images/slaughter-facility/Processing Area.jpg',
       title: 'Processing Area',
       description: 'Clean and modern meat processing facility'
     },
     {
-      src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop',
+      src: '/images/slaughter-facility/Quality Control.jpg',
       title: 'Quality Control',
       description: 'Rigorous quality inspection processes'
     },
     {
-      src: 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=600&h=400&fit=crop',
+      src: '/images/slaughter-facility/Packaging Area.jpg',
       title: 'Packaging Area',
       description: 'Professional vacuum sealing and packaging'
     },
     {
-      src: 'https://images.unsplash.com/photo-1578662996442-374dcbcb630e?w=600&h=400&fit=crop',
+      src: '/images/slaughter-facility/Cold Storage.jpg',
       title: 'Cold Storage',
       description: 'Temperature-controlled storage facilities'
     }
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -138,8 +138,8 @@ const SlaughterFacility = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&h=400&fit=crop"
-                alt="Modern Processing Facility"
+                src="/images/slaughter-facility/Modern Halal Processing Facility.jpg"
+                alt="Modern Halal Processing Facility - State-of-the-art Equipment"
                 className="rounded-xl shadow-lg w-full h-96 object-cover"
               />
             </motion.div>
@@ -195,8 +195,8 @@ const SlaughterFacility = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop"
-                alt="Hygiene Standards"
+                src="/images/slaughter-facility/Hygiene Standards.jpg"
+                alt="Hygiene Standards - HACCP Compliance and Quality Control"
                 className="rounded-xl shadow-lg w-full h-96 object-cover"
               />
             </motion.div>

@@ -54,12 +54,12 @@ const FAQ = () => {
     },
     {
       question: "How can I place an order or request a quotation?",
-      answer: "You can place an order or request a quotation by contacting us via email at info@pakmeattraders.com, WhatsApp at +92-3477722225, or through our website contact form. Please provide details about your requirements including quantity, destination, and any specific preferences for accurate quotation."
+      answer: "You can place an order or request a quotation by contacting us via email at mrghanchi007@gmail.com, WhatsApp at +92-3477722225, or through our website contact form. Please provide details about your requirements including quantity, destination, and any specific preferences for accurate quotation."
     }
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
